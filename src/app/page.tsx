@@ -24,6 +24,7 @@ function Login() {
             alt="Your Company"
             width={400}
             height={400}
+            priority
           />
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-slate-900">
             Inicia sesion en tu cuenta
