@@ -20,6 +20,7 @@ const config: Config = {
           "800": "#094826",
           "900": "#073d21",
         },
+        secondaryYellow: "#F2E300",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
