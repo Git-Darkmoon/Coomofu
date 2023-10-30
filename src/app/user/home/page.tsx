@@ -10,6 +10,7 @@ export type option = {
   id?: number
   icon?: any
   title?: string
+  route?: string
 }
 
 const options: Array<option> = [
@@ -17,16 +18,19 @@ const options: Array<option> = [
     id: 1,
     icon: <UserIcon />,
     title: "Perfiles",
+    route: "/user/profiles",
   },
   {
     id: 2,
     icon: <SquaresPlusIcon />,
     title: "Ingreso de datos",
+    route: "/user/addProfile",
   },
   {
     id: 3,
     icon: <ArrowPathIcon />,
     title: "Actualizacion de datos",
+    route: "/user/updateProfile",
   },
 ]
 
