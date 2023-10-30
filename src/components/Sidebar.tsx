@@ -10,8 +10,8 @@ function Sidebar({ isOpen }: any) {
   return (
     <aside
       className={` ${
-        isOpen ? "visible" : "hidden"
-      } fixed left-0 h-screen bg-primaryGreen-500`}
+        isOpen ? "opacity-0" : "opacity-100"
+      } fixed w-16 lg:w-32 left-0 h-screen bg-primaryGreen-500 transition-all z-10`}
     >
       <nav className="flex flex-col items-center gap-8">
         <Image
@@ -19,7 +19,7 @@ function Sidebar({ isOpen }: any) {
           alt=""
           width={150}
           height={150}
-          className="bg-primaryGreen-100 px-4 py-2"
+          className="bg-primaryGreen-100 lg:px-4 lg:py-2"
           priority
         />
         <Link href={"/user/home"} className={iconStyles}>
