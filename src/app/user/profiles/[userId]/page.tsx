@@ -9,9 +9,16 @@ async function page({ params }: any) {
   )
 
   return (
-    <main className="w-full flex flex-col px-44">
-      <article>
-        <Image src={avatar} alt="" width={200} height={200} priority />
+    <main className="w-full flex flex-col gap-4 px-12 lg:px-44">
+      <article className="w-full flex flex-col items-center text-slate-200 gap-3">
+        <Image
+          src={avatar}
+          alt={`Person called ${first_name}`}
+          width={200}
+          height={200}
+          priority
+          className="rounded-sm"
+        />
         <h2>Identificacion: {id} </h2>
         <h2>
           {first_name} {last_name}
@@ -107,13 +114,13 @@ async function page({ params }: any) {
               htmlFor="visitors"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Unique visitors (per month)
+              Email
             </label>
             <input
               type="email"
               id="visitors"
               className="bg-gray-50 border cursor-not-allowed border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="alguien@outlook.com"
+              placeholder={email}
               readOnly
               required
             />

@@ -10,7 +10,7 @@ export type User = {
 }
 function ProfileCard({ id, first_name, last_name, avatar }: User) {
   return (
-    <div className="max-w-sm w-full border rounded-lg shadow-sm hover:shadow-md hover:scale-105 bg-primaryGreen-700 flex transition-all">
+    <div className="max-w-sm w-full border-none border rounded-lg shadow-sm hover:shadow-md hover:scale-105 bg-primaryGreen-700 flex transition-all">
       <Image src={avatar} width={120} height={120} alt="User picture" />
       <div className="p-5">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

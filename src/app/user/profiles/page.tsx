@@ -9,9 +9,9 @@ async function Profiles() {
   return (
     <main className="px-10 lg:px-20 py-5 lg:py-10">
       <header className="w-full h-8 flex items-center justify-center">
-        <h1 className="text-4xl">Perfiles</h1>
+        <h1 className="text-4xl text-slate-200">Perfiles</h1>
       </header>
-      <section className="mt-6 ml-44 flex flex-wrap gap-6">
+      <section className="w-full mt-2 lg:mt-5 flex flex-wrap justify-center gap-6">
         {users.map((user: User) => {
           return <ProfileCard key={user.id} {...user} />
         })}
