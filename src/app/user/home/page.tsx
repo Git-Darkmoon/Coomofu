@@ -36,11 +36,13 @@ const options: Array<option> = [
 
 function Home() {
   return (
-    <div className="w-full h-[calc(100vh-4rem)] flex flex-col justify-center items-center gap-28">
-      <header className="text-center ml-44">
-        <h1 className="text-5xl">Bienvenido a la base de datos de Coomofu</h1>
+    <div className="w-full min-h-[calc(100dvh-5rem)] py-6 flex flex-col justify-center items-center gap-16">
+      <header className="text-center">
+        <h1 className="text-5xl text-slate-200">
+          Bienvenido a la base de datos de Coomofu
+        </h1>
       </header>
-      <main className="ml-44 flex justify-center items-center flex-col md:flex-row gap-12">
+      <main className=" flex justify-center items-center flex-col md:flex-row gap-12">
         {options.map((option: option) => {
           return <Card key={option.id} {...option} />
         })}
