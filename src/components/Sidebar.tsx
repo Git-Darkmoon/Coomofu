@@ -10,8 +10,8 @@ function Sidebar({ isOpen }: any) {
   return (
     <aside
       className={` ${
-        isOpen ? "opacity-0" : "opacity-100"
-      } fixed w-16 lg:w-32 left-0 h-screen bg-primaryGreen-500 transition-all z-10`}
+        isOpen ? "hidden" : "block"
+      } fixed w-64 lg:w-96 left-0 h-screen bg-primaryGreen-500 transition-all z-10`}
     >
       <nav className="flex flex-col items-center gap-8">
         <Image
@@ -19,14 +19,22 @@ function Sidebar({ isOpen }: any) {
           alt=""
           width={150}
           height={150}
-          className="bg-primaryGreen-100 lg:px-4 lg:py-2"
+          className="bg-primaryGreen-100 w-full px-4 lg:px-16 lg:py-4"
           priority
         />
-        <Link href={"/user/home"} className={iconStyles}>
-          <HomeIcon />
+        <Link
+          href={"/user/home"}
+          className="w-full hover:bg-primaryGreen-300 py-4 flex items-center justify-center text-slate-200 gap-4 transition-colors"
+        >
+          <HomeIcon className={iconStyles} />
+          Home
         </Link>
-        <Link href={"/"} className={iconStyles}>
-          <ArrowLeftOnRectangleIcon />
+        <Link
+          href={"/"}
+          className="w-full hover:bg-primaryGreen-300 py-4 flex items-center justify-center text-slate-200 gap-4 transition-colors"
+        >
+          <ArrowLeftOnRectangleIcon className={iconStyles} />
+          Salir
         </Link>
       </nav>
     </aside>
