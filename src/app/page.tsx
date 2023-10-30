@@ -93,7 +93,7 @@ function Login() {
                 className="flex w-full justify-center rounded-md bg-primaryGreen-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primaryGreen-500 transition-colors"
                 onClick={() => {
                   if (email === "admin@example.com" && pw === "admin") {
-                    router.push("/home")
+                    router.push("/user/home")
                   } else {
                     alert("Datos invalidos")
                   }
