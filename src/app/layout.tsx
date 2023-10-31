@@ -41,8 +41,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <NextTopLoader color="#f2e300" />
-      <body className="bg-slate-800">{children}</body>
+      <body className="bg-slate-800">
+        <NextTopLoader color="#f2e300" />
+        {children}
+      </body>
     </html>
   )
 }
