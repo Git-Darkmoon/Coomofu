@@ -1,8 +1,5 @@
-import {
-  UserIcon,
-  SquaresPlusIcon,
-  ArrowPathIcon,
-} from "@heroicons/react/24/outline"
+import PersonSearchRoundedIcon from "@mui/icons-material/PersonSearchRounded"
+import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded"
 import Card from "@/components/Card"
 
 export type option = {
@@ -12,24 +9,20 @@ export type option = {
   route?: string
 }
 
+const iconSize: number = 100
+
 const options: Array<option> = [
   {
     id: 1,
-    icon: <UserIcon />,
+    icon: <PersonSearchRoundedIcon sx={{ fontSize: iconSize }} />,
     title: "Perfiles",
     route: "/user/profiles",
   },
   {
     id: 2,
-    icon: <SquaresPlusIcon />,
-    title: "Ingreso de datos",
-    route: "/user/addProfile",
-  },
-  {
-    id: 3,
-    icon: <ArrowPathIcon />,
-    title: "Actualizacion de datos",
-    route: "/user/updateProfile",
+    icon: <PersonAddAltRoundedIcon sx={{ fontSize: iconSize }} />,
+    title: "Añadir usuario",
+    route: "/user/addUser",
   },
 ]
 

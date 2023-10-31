@@ -1,5 +1,7 @@
 import { fetchUsers } from "@/app/utils"
 import Image from "next/image"
+import Link from "next/link"
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded"
 
 const API_URL = "https://reqres.in/api/users"
 
@@ -9,8 +11,15 @@ async function page({ params }: any) {
   )
 
   return (
-    <main className="w-full flex flex-col gap-4 px-12 lg:px-44">
-      <article className="w-full flex flex-col items-center text-slate-200 gap-3">
+    <main className="w-full flex flex-col gap-4 px-12 py-6 lg:px-44">
+      <Link
+        href={"/user/profiles"}
+        className="flex items-center justify-end gap-5 max-md:pb-4 text-secondaryYellow group"
+      >
+        <h1 className="group-hover:text-yellow-400">Volver</h1>
+        <ArrowBackRoundedIcon className="group-hover:-translate-x-1 transition-transform group-hover:text-yellow-400" />
+      </Link>
+      <article className="w-full flex flex-col md:flex-row items-center gap-3 lg:gap-8 text-slate-200 ">
         <Image
           src={avatar}
           alt={`Person called ${first_name}`}
@@ -19,10 +28,12 @@ async function page({ params }: any) {
           priority
           className="rounded-sm"
         />
-        <h2>Identificacion: {id} </h2>
-        <h2>
-          {first_name} {last_name}
-        </h2>
+        <div>
+          <h2>Identificacion: {id} </h2>
+          <h2>
+            {first_name} {last_name}
+          </h2>
+        </div>
       </article>
 
       <article>
@@ -124,6 +135,14 @@ async function page({ params }: any) {
               readOnly
               required
             />
+          </div>
+          <div className="flex gap-3">
+            <button className="text-slate-100 px-1.5 py-1 rounded-sm hover:text-secondaryYellow bg-primaryGreen-400">
+              Editar Informacion
+            </button>
+            <button className="text-slate-100 px-1.5 py-1 rounded-sm hover:text-secondaryYellow bg-red-500">
+              Borrar Usuario
+            </button>
           </div>
         </div>
       </article>
