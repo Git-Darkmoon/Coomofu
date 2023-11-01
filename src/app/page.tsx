@@ -92,8 +92,10 @@ function Login() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-primaryGreen-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primaryGreen-500 transition-colors"
                 onClick={() => {
-                  if (email === "admin@example.com" && pw === "admin") {
+                  if (email === "admin@users.com" && pw === "admin") {
                     router.push("/user/home")
+                  } else if (email === "admin@cars.com" && pw === "admin") {
+                    router.push("/car/home")
                   } else {
                     alert("Datos invalidos")
                   }
