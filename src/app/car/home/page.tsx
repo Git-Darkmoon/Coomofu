@@ -1,5 +1,5 @@
-import PersonSearchRoundedIcon from "@mui/icons-material/PersonSearchRounded"
-import CarCrashRoundedIcon from "@mui/icons-material/CarCrashRounded"
+import CommuteRoundedIcon from "@mui/icons-material/CommuteRounded"
+import CarRentalRoundedIcon from "@mui/icons-material/CarRentalRounded"
 
 import Card from "@/components/Card"
 
@@ -10,16 +10,18 @@ export type option = {
   route?: string
 }
 
+const iconSize: number = 100
+
 const options: Array<option> = [
   {
     id: 1,
-    icon: <PersonSearchRoundedIcon />,
-    title: "Carros",
+    icon: <CommuteRoundedIcon sx={{ fontSize: iconSize }} />,
+    title: "Automoviles",
     route: "/user/profiles",
   },
   {
     id: 2,
-    icon: <CarCrashRoundedIcon />,
+    icon: <CarRentalRoundedIcon sx={{ fontSize: iconSize }} />,
     title: "Añadir automovil",
     route: "/car/updateProfile",
   },
