@@ -44,12 +44,14 @@ function Sidebar() {
           />
         )}
       </button>
-      {isSidebarOpen || (
-        <div className="w-full h-full fixed top-0 left-0 bg-slate-950/70 "></div>
+      {isSidebarOpen ? (
+        <div className="w-full h-full fixed top-0 left-0 bg-slate-950/70 opacity-0 transition-opacity -z-10"></div>
+      ) : (
+        <div className="w-full h-full fixed top-0 left-0 bg-slate-950/70 opacity-100 transition-opacity"></div>
       )}
       <aside
         className={` ${
-          isSidebarOpen ? "hidden" : "block"
+          isSidebarOpen ? "invisible opacity-0 " : "visible opacity-100"
         } fixed w-64 lg:w-80 left-0 h-screen bg-primaryGreen-500 transition-all z-30`}
       >
         <nav className="flex flex-col items-center gap-8">
