@@ -30,10 +30,10 @@ async function page({ params }: any) {
           className="rounded-sm"
         />
         <div>
-          <h2>Identificacion: {id} </h2>
-          <h2>
+          <h1 className="leading-10 text-3xl">
             {first_name} {last_name}
-          </h2>
+          </h1>
+          <h2 className="text-base text-slate-200/50">Identificacion: {id} </h2>
         </div>
       </article>
 
