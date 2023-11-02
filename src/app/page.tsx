@@ -5,6 +5,9 @@ import Logo from "@/assets/Coomofu_logo.webp"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded"
+import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded"
+
 const handleSubmit = (e: any) => {
   e.preventDefault()
 }
@@ -13,6 +16,10 @@ function Login() {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [pw, setPw] = useState("")
+  const [showPw, setShowPw] = useState(false)
+
+  const inputStyles: string =
+    "px-3 block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryGreen-400 sm:text-sm sm:leading-6"
 
   return (
     <main className="w-full min-h-screen flex justify-center items-center bg-primaryGreen-500 ">
@@ -49,7 +56,7 @@ function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="px-2 block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryGreen-400 sm:text-sm sm:leading-6"
+                  className={`${inputStyles} outline-none`}
                 />
               </div>
             </div>
@@ -65,32 +72,41 @@ function Login() {
                 <div className="text-sm">
                   <a
                     href="#"
-                    className="font-semibold text-primaryGreen-400 hover:text-primaryGreen-500"
+                    className="font-semibold text-primaryGreen-400 hover:text-primaryGreen-500 transition-colors"
                   >
                     Olvidaste la contraseña?
                   </a>
                 </div>
               </div>
-              <div className="mt-2">
+              <div
+                className={`mt-2 flex justify-between gap-3 bg-white focus-within:ring-2 focus-within:ring-inset focus-within:ring-primaryGreen-400 ${inputStyles}`}
+              >
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPw ? "text" : "password"}
                   autoComplete="current-password"
                   value={pw}
                   onChange={(e) => {
                     setPw(e.target.value)
                   }}
                   required
-                  className="px-2 block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryGreen-400 sm:text-sm sm:leading-6"
+                  className="w-full outline-none"
                 />
+                <button type="button" onClick={() => setShowPw(!showPw)}>
+                  {showPw ? (
+                    <VisibilityOffRoundedIcon />
+                  ) : (
+                    <VisibilityRoundedIcon />
+                  )}
+                </button>
               </div>
             </div>
 
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-primaryGreen-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primaryGreen-500 transition-colors"
+                className="flex w-full justify-center rounded-md bg-primaryGreen-500 hover:bg-primaryGreen-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:text-secondaryYellow shadow-sm  transition-colors"
                 onClick={() => {
                   if (email === "admin@users.com" && pw === "admin") {
                     router.push("/user/home")
@@ -110,7 +126,7 @@ function Login() {
             No tienes cuenta?{" "}
             <a
               href="#"
-              className="font-semibold leading-6 text-primaryGreen-400 hover:text-primaryGreen-500"
+              className="font-semibold leading-6 text-primaryGreen-400 hover:text-primaryGreen-500 transition-colors"
             >
               Crea una cuenta
             </a>
