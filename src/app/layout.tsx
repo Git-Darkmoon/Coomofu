@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import NextTopLoader from "nextjs-toploader"
+import ReactQueryProvider from "@/components/ReactQueryProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -40,11 +41,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="bg-slate-800">
-        <NextTopLoader color="#f2e300" />
-        {children}
-      </body>
-    </html>
+    <ReactQueryProvider>
+      <html lang="en" className={inter.className}>
+        <body className="bg-slate-800">
+          <NextTopLoader color="#f2e300" />
+          {children}
+        </body>
+      </html>
+    </ReactQueryProvider>
   )
 }
