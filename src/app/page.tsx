@@ -7,6 +7,7 @@ import { useState } from "react"
 
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded"
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded"
+import Swal from "sweetalert2"
 
 const handleSubmit = (e: any) => {
   e.preventDefault()
@@ -113,7 +114,11 @@ function Login() {
                   } else if (email === "admin@cars.com" && pw === "admin") {
                     router.push("/car/home")
                   } else {
-                    alert("Datos invalidos")
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Datos Invalidos!",
+                    })
                   }
                 }}
               >
