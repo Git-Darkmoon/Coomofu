@@ -23,7 +23,7 @@ const options: Array<option> = [
     id: 2,
     icon: <CarRentalRoundedIcon sx={{ fontSize: iconSize }} />,
     title: "Añadir automovil",
-    route: "/car/updateProfile",
+    route: "/user/addUser",
   },
 ]
 
