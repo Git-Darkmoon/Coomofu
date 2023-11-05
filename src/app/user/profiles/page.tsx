@@ -14,8 +14,19 @@ const headerStyle: string =
   "w-full h-8 flex gap-4 flex-col items-center justify-center text-2xl text-slate-300"
 
 function Profiles() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [myData, setMyData]: any = useState()
+  const [searchTerm, setSearchTerm] = useState<string>("")
+
+  const handleSubmit = (e: any, data: any, searchTerm: string) => {
+    e.preventDefault()
+
+    const filteredData = data?.data?.filter(
+      (user: User) =>
+        user.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.last_name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    console.log(filteredData)
+    setMyData(filteredData)
+  }
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["profiles"],
@@ -26,6 +37,8 @@ function Profiles() {
       return users
     },
   })
+
+  const [myData, setMyData]: any = useState(data)
 
   if (isLoading)
     return (
@@ -45,7 +58,10 @@ function Profiles() {
     <main className="px-10 lg:px-20 py-5 lg:py-10">
       <header className="w-full h-8 flex gap-4 flex-col items-center justify-center">
         <h1 className="text-4xl text-slate-200 ">Perfiles</h1>
-        <form className={`flex ${inputStyle}`}>
+        <form
+          className={`flex ${inputStyle}`}
+          onSubmit={(e) => handleSubmit(e, data, searchTerm)}
+        >
           <PersonSearchRoundedIcon className="text-slate-500" />
 
           <input
@@ -64,21 +80,18 @@ function Profiles() {
           <div className="flex gap-4 ">
             <button
               className="hover:text-primaryGreen-300 transition-colors"
-              type="button"
-              onClick={() =>
-                setMyData(
-                  myData?.filter((user: User) =>
-                    user.first_name.includes(searchTerm)
-                  )
-                )
-              }
+              type="submit"
+              onClick={() => {}}
             >
               Search
             </button>
             <button
               type="reset"
               className="hover:text-primaryGreen-300 transition-colors"
-              onClick={() => setSearchTerm("")}
+              onClick={() => {
+                setSearchTerm("")
+                setMyData(data)
+              }}
             >
               Reset
             </button>
@@ -87,6 +100,7 @@ function Profiles() {
       </header>
       <section className="w-full mt-2 pt-12 lg:mt-5 flex flex-wrap justify-center gap-6">
         {myData?.data?.map((user: User) => {
+          console.log(myData.data)
           return <ProfileCard key={user.id} {...user} />
         })}
       </section>
