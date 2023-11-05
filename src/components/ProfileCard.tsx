@@ -8,6 +8,7 @@ export type User = {
   last_name: string
   avatar: string
 }
+
 function ProfileCard({ id, first_name, last_name, avatar }: User) {
   return (
     <div className="max-w-sm w-full border-none border rounded-lg shadow-sm hover:shadow-md hover:scale-105 bg-primaryGreen-700 flex transition-all">
@@ -27,7 +28,3 @@ function ProfileCard({ id, first_name, last_name, avatar }: User) {
   )
 }
 export default ProfileCard
-
-{
-  /*  w-3.5 h-3.5 ml-2*/
-}
