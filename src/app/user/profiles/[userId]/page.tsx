@@ -37,7 +37,12 @@ async function page({ params }: any) {
         </div>
       </article>
 
-      <Inputs first_name={first_name} last_name={last_name} email={email} />
+      <Inputs
+        first_name={first_name}
+        last_name={last_name}
+        email={email}
+        initialState={true}
+      />
     </main>
   )
 }
